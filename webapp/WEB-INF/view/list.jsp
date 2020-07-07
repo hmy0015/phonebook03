@@ -35,13 +35,13 @@
 						</tr>
 						
 						<tr>
-							<td><a href="/pb03/phone/updateForm?pId=${pList.personId}">수정</a></td>
-							<td><a href="/pb03/phone/delete?pId=${pList.personId}">삭제</a></td>
+							<td><a href="${pageContext.request.contextPath}/phone/updateForm/${pList.personId}">수정</a></td>
+							<td><a href="${pageContext.request.contextPath}/phone/delete/${pList.personId}">삭제</a></td>
 						</tr>
 					</tbody>
 				</table>
 				<br>
 			</c:forEach>
-		<a href = "/pb03/phone/writeForm">번호 등록하기</a>
+		<a href = "${pageContext.request.contextPath}/phone/writeForm">번호 등록하기</a>
 	</body>
 </html>

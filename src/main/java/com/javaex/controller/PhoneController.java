@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,7 +42,7 @@ public class PhoneController {
 		
 		model.addAttribute("pList", pList);
 		
-		return "/WEB-INF/view/list.jsp";
+		return "list";
 	}
 	
 	// 등록 폼	
@@ -49,7 +50,7 @@ public class PhoneController {
 	public String writeFrom() {
 		System.out.println("writeForm");
 		
-		return "/WEB-INF/view/writeForm.jsp";
+		return "writeForm";
 	}
 	
 	// 등록
@@ -66,8 +67,8 @@ public class PhoneController {
 	}
 	
 	// 수정 폼
-	@RequestMapping(value="/updateForm", method=RequestMethod.GET)
-	public String updateForm(@RequestParam("pId") int pId, Model model){
+	@RequestMapping(value="/updateForm/{pId}", method=RequestMethod.GET)
+	public String updateForm(@PathVariable("pId") int pId, Model model) {
 		System.out.println("updateForm");
 
 		PhoneDao dao = new PhoneDao();
@@ -75,7 +76,7 @@ public class PhoneController {
 		
 		model.addAttribute("vo", vo);
 		
-		return "/WEB-INF/view/updateForm.jsp";
+		return "updateForm";
 	}
 	
 	// 수정
@@ -90,8 +91,8 @@ public class PhoneController {
 	}
 	
 	// 삭제
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String delete(@RequestParam("pId") int pId){
+	@RequestMapping(value="/delete/{pId}", method=RequestMethod.GET)
+	public String delete(@PathVariable("pId") int pId){
 		System.out.println("delete");
 
 		PhoneDao dao = new PhoneDao();

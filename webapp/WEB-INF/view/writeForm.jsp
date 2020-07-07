@@ -15,7 +15,7 @@
 			"등록" 버튼을 클릭하세요.
 		</p>
 		
-		<form action = "/pb03/phone/write" method = "get">
+		<form action = "${pageContext.request.contextPath}/phone/write" method = "get">
 			이름(name) : <input type = "text" name = "name" value = ""> <br>
 			핸드폰(hp) : <input type = "text" name = "hp" value = ""> <br>
 			회사(company) : <input type = "text" name = "company" value = ""> <br>
@@ -23,8 +23,7 @@
 		</form>
 		
 		<br>
-		<a href = "/pb03/phone/list">리스트 바로가기</a>
-		
+		<a href = "${pageContext.request.contextPath}/phone/list">리스트 바로가기</a>
 		
 	</body>
 </html>
